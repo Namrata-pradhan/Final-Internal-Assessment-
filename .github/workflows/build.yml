@@ -1,0 +1,23 @@
+name: Java Build and Run
+on:
+  push:
+     branches:
+        -main
+
+  jobs:
+    build:
+    runs-on: ubuntu-latest
+        steps:
+        -name: check out code
+        uses: actions/checkout@v2
+
+        -name: Set up java
+        uses: actions/setup-java@v2
+        with: 
+           java-version: "11"
+
+        -name: compile java code
+        run: javac SimpleApp.java
+
+        -name: run java code
+        run: java SimpleApp.java
